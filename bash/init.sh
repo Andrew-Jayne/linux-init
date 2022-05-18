@@ -3,7 +3,7 @@ sudo apt update
 sudo apt upgrade
 
 #install main  programs included in apt
-sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates curl gnupg lsb-release virtualbox termffmpeg python3.9-venv
+sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox terraform ffmpeg  
 
 #install pip
 python3 -m ensurepip --upgrade
@@ -24,8 +24,8 @@ echo \
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 	#GCP CLI
-echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo tee /usr/share/keyrings/cloud.google.gpg
 	#Terraform
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
@@ -37,10 +37,20 @@ sudo add-apt-repository ppa:obsproject/obs-studio
 sudo apt update
 sudo apt install brave-browser terraform sublime-text docker-ce docker-ce-cli containerd.io kubectl google-cloud-sdk workspacesclient obs-studio awscli
 
+#install AVX VPN Client
+curl -O https://aviatrix-download.s3-us-west-2.amazonaws.com/AviatrixVPNClient/AVPNC_linux_FocalFossa.deb
+sudo dpkg -i AVPNC_linux_FocalFossa.deb
+
+#install AWS VPN Client
+curl https://d20adtppz83p9s.cloudfront.net/GTK/latest/awsvpnclient_amd64.deb -o awsvpnclient_amd64.deb
 
 #install Azure CLI
 sudo apt remove azure-cli
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+sudo dpkg -i awsvpnclient_amd64.deb
+
+#install VS Code
+sudo snap install code --classic
 
 #install slack
 sudo snap install slack --classic
