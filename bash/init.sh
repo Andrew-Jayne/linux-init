@@ -3,7 +3,7 @@ sudo apt update
 sudo apt upgrade
 
 #install main  programs included in apt
-sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox terraform ffmpeg  
+sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox terraform ffmpeg  blueman
 
 #install pip
 python3 -m ensurepip --upgrade
