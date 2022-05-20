@@ -3,7 +3,7 @@ sudo apt update
 sudo apt upgrade
 
 #install main  programs included in apt
-sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox terraform ffmpeg  blueman
+sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox terraform ffmpeg blueman
 
 #install pip
 python3 -m ensurepip --upgrade
@@ -29,13 +29,10 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo tee /usr/share
 	#Terraform
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-	#OBS
-sudo add-apt-repository ppa:obsproject/obs-studio
-
 
 #install Brave, Sublime Test, Docker, KubeCtl, OBS, Terraform
 sudo apt update
-sudo apt install brave-browser terraform sublime-text docker-ce docker-ce-cli containerd.io kubectl google-cloud-sdk workspacesclient obs-studio awscli
+sudo apt install brave-browser terraform sublime-text docker-ce docker-ce-cli containerd.io kubectl google-cloud-sdk workspacesclient awscli
 
 #install AVX VPN Client
 curl -O https://aviatrix-download.s3-us-west-2.amazonaws.com/AviatrixVPNClient/AVPNC_linux_FocalFossa.deb
@@ -43,6 +40,7 @@ sudo dpkg -i AVPNC_linux_FocalFossa.deb
 
 #install AWS VPN Client
 curl https://d20adtppz83p9s.cloudfront.net/GTK/latest/awsvpnclient_amd64.deb -o awsvpnclient_amd64.deb
+sudo dpkg -i awsvpnclient_amd64.deb
 
 #install Azure CLI
 sudo apt remove azure-cli
