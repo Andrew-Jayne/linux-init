@@ -45,7 +45,7 @@ python3 -m ensurepip --upgrade
 
 ##Install .deb packages
 	#install AVX VPN Client
-	curl -O "https://aviatrix-download.s3-us-west-2.amazonaws.com/AviatrixVPNClient/AVPNC_linux_FocalFossa.deb"
+	curl "https://aviatrix-download.s3-us-west-2.amazonaws.com/AviatrixVPNClient/AVPNC_linux_FocalFossa.deb" -o AVPNC_linux_FocalFossa.deb
 	sudo dpkg -i AVPNC_linux_FocalFossa.deb
 
 	#install AWS VPN Client
