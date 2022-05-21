@@ -3,7 +3,7 @@ sudo apt update
 sudo apt upgrade
 
 ##Install additional native packages
-sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox terraform ffmpeg blueman yamllint screen
+sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox terraform ffmpeg blueman yamllint screen gnome-tweaks gnome-shell-extensions chrome-gnome-shell
 
 ##install pip
 python3 -m ensurepip --upgrade
@@ -79,7 +79,7 @@ echo ""
 echo ""
 echo "Azure VDI is restricted to web only, what a sham"
 echo 'Edge DL link -> https://www.microsoftedgeinsider.com/en-us/download?platform=linux-deb'
+echo 'Gtile Extension -> https://extensions.gnome.org/extension/28/gtile/'
 
 #Clean Up .deb files
 rm *.deb
-
