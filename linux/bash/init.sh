@@ -10,7 +10,7 @@ python3 -m ensurepip --upgrade
 
 ##Install keys and packages from external sources
 
-	#install Keys and GPG for Brave, Sublime Text, Docker, KubeCtl, Terraform
+	#install Keys and GPG for Brave, Sublime Text, Docker, KubeCtl, Terraform, OBS
 		#brave
 		sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 		echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
@@ -36,9 +36,12 @@ python3 -m ensurepip --upgrade
 		wget -qO - terraform.gpg https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/terraform-archive-keyring.gpg
 		sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/terraform-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > /etc/apt/sources.list.d/terraform.list
 
-	#install Brave, Docker, KubeCtl, Terraform, Sublime Text
+		#OBS
+		sudo add-apt-repository ppa:obsproject/obs-studio
+
+	#install Brave, Docker, KubeCtl, Terraform, Sublime Text, OBS
 	sudo apt update
-	sudo apt install brave-browser terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl google-cloud-cli awscli sublime-text
+	sudo apt install brave-browser terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl google-cloud-cli awscli sublime-text obs-studio
 
 ##Install .deb packages
 	#install AVX VPN Client
