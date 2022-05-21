@@ -30,25 +30,26 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo tee /usr/share
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 
-#install Brave, Sublime Test, Docker, KubeCtl, OBS, Terraform
+#install Brave, Sublime Test, Docker, KubeCtl, Terraform
 sudo apt update
-sudo apt install brave-browser terraform sublime-text docker-ce docker-ce-cli containerd.io kubectl google-cloud-sdk workspacesclient awscli
+sudo apt install brave-browser terraform sublime-text docker-ce docker-ce-cli containerd.io kubectl google-cloud-sdk awscli
 
 #install AVX VPN Client
-curl -O https://aviatrix-download.s3-us-west-2.amazonaws.com/AviatrixVPNClient/AVPNC_linux_FocalFossa.deb
+curl -O "https://aviatrix-download.s3-us-west-2.amazonaws.com/AviatrixVPNClient/AVPNC_linux_FocalFossa.deb"
 sudo dpkg -i AVPNC_linux_FocalFossa.deb
 
 #install AWS VPN Client
-curl https://d20adtppz83p9s.cloudfront.net/GTK/latest/awsvpnclient_amd64.deb -o awsvpnclient_amd64.deb
+curl "https://d20adtppz83p9s.cloudfront.net/GTK/latest/awsvpnclient_amd64.deb" -o awsvpnclient_amd64.deb
 sudo dpkg -i awsvpnclient_amd64.deb
 
 #install Azure CLI
 sudo apt remove azure-cli
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 sudo dpkg -i awsvpnclient_amd64.deb
 
 #install VS Code
-sudo snap install code --classic
+curl "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o vscode.deb
+sudo dpkg -i vscode.deb
 
 #install slack
 sudo snap install slack --classic
