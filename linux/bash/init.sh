@@ -3,7 +3,7 @@ sudo apt update
 sudo apt upgrade
 
 ##Install additional native packages
-sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox terraform ffmpeg blueman
+sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox terraform ffmpeg blueman yamllint
 
 ##install pip
 python3 -m ensurepip --upgrade
@@ -57,6 +57,8 @@ python3 -m ensurepip --upgrade
 sudo apt remove azure-cli
 curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 
+## install Ansible lint
+pip3 install git+https://github.com/ansible-community/ansible-lint.git
 
 ##Install Snap Packages
 	#install slack
