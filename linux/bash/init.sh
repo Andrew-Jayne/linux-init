@@ -3,7 +3,7 @@ sudo apt update
 sudo apt upgrade
 
 ## Install additional native packages
-sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox terraform ffmpeg blueman yamllint screen gnome-todo
+sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg blueman yamllint screen gnome-todo
 
 ## Install pip
 python3 -m ensurepip --upgrade
