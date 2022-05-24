@@ -2,13 +2,13 @@ echo "Welcome $USER"
 sudo apt update
 sudo apt upgrade
 
-##Install additional native packages
+## Install additional native packages
 sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox terraform ffmpeg blueman yamllint screen gnome-todo
 
-##install pip
+## Install pip
 python3 -m ensurepip --upgrade
 
-##Install keys and packages from external sources
+##  Install packages from external sources
 
 	#install Keys and GPG for Brave, Sublime Text, Docker, KubeCtl, Terraform, OBS
 		#brave
@@ -43,7 +43,7 @@ python3 -m ensurepip --upgrade
 	sudo apt update
 	sudo apt install brave-browser terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl google-cloud-cli awscli sublime-text obs-studio
 
-##Install .deb packages
+## Install .deb packages
 	#install AVX VPN Client
 	curl "https://aviatrix-download.s3-us-west-2.amazonaws.com/AviatrixVPNClient/AVPNC_linux_FocalFossa.deb" -o AVPNC_linux_FocalFossa.deb
 	sudo dpkg -i AVPNC_linux_FocalFossa.deb
@@ -56,14 +56,14 @@ python3 -m ensurepip --upgrade
 	curl "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o vscode.deb
 	sudo dpkg -i vscode.deb
 
-##install Azure CLI
+## Install Azure CLI
 sudo apt remove azure-cli
 curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 
-## install Ansible lint
+## Install Ansible lint
 pip3 install git+https://github.com/ansible-community/ansible-lint.git
 
-##Install Snap Packages
+## Install Snap Packages
 	#install slack
 	sudo snap install slack --classic
 
@@ -73,12 +73,12 @@ pip3 install git+https://github.com/ansible-community/ansible-lint.git
 	#install Azure Storage Explorer
 	sudo snap install storage-explorer
 
-##Closing messages
+## Closing messages
 echo ""
 echo ""
 echo ""
 echo "Azure VDI is restricted to web only, what a sham"
 echo 'Edge DL link -> https://www.microsoftedgeinsider.com/en-us/download?platform=linux-deb'
 
-#Clean Up .deb files
+## Clean Up .deb files
 rm *.deb
