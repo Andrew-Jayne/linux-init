@@ -77,6 +77,7 @@ echo ""
 echo ""
 echo "Azure VDI is restricted to web only, what a sham"
 echo 'Edge DL link -> https://www.microsoftedgeinsider.com/en-us/download?platform=linux-deb'
+echo "Enjoy the new install"
 
-## Clean Up .deb files
+# Clean Up .deb files
 rm *.deb
