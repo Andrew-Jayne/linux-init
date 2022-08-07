@@ -70,6 +70,9 @@ pip3 install git+https://github.com/ansible-community/ansible-lint.git
 
 	#install Azure Storage Explorer
 	sudo snap install storage-explorer
+        
+        #install Paper
+	flatpak install https://dl.flathub.org/repo/appstream/io.posidon.Paper.flatpakref
 
 ## Closing messages
 echo ""
