@@ -54,6 +54,10 @@ python3 -m ensurepip --upgrade
 	curl "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o vscode.deb
 	sudo dpkg -i vscode.deb
 
+	#install OpenSSL 1.1.1 (For AWS VPN)
+	curl "http://ftp.de.debian.org/debian/pool/main/o/openssl/openssl_1.1.1n-0+deb11u3_amd64.deb" -o openssl111.deb
+	sudo dpkg -i openssl111.deb
+
 ## Install Azure CLI
 sudo apt remove azure-cli
 curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
