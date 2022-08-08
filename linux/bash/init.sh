@@ -1,9 +1,9 @@
 echo "Welcome $USER"
-sudo apt update
-sudo apt upgrade
+sudo apt update -y
+sudo apt upgrade -y
 
 ## Install additional native packages
-sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg blueman yamllint screen gnome-todo flatpak
+sudo apt install vim apt-transport-https curl ansible zsh python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg blueman yamllint screen gnome-todo flatpak wget -y
 
 ## Install pip
 python3 -m ensurepip --upgrade
@@ -38,8 +38,8 @@ python3 -m ensurepip --upgrade
 		sudo add-apt-repository ppa:obsproject/obs-studio
 
 	#install Brave, Docker, KubeCtl, Terraform, Sublime Text, OBS
-	sudo apt update
-	sudo apt install brave-browser terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl  awscli sublime-text obs-studio
+	sudo apt update -y
+	sudo apt install brave-browser terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl  awscli sublime-text obs-studio -y
 
 ## Install .deb packages
 	#install AVX VPN Client
@@ -59,7 +59,7 @@ python3 -m ensurepip --upgrade
 	sudo dpkg -i openssl111.deb
 
 ## Install Azure CLI
-sudo apt remove azure-cli
+sudo apt remove azure-cli -y
 curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 
 ## Install Ansible lint
