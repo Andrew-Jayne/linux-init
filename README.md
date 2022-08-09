@@ -1,25 +1,18 @@
-# MacOS
+## MacOS
 
-init.sh - Installs programs and dependencies
+`init.sh` - Installs programs and dependencies
 
-omz.sh - installs OhMyZsh and sets it as the default shell
-
-
+`omz.sh` - installs OhMyZsh and sets it as the default shell
 
 
-# Linux
+## Linux
 
-init.sh - Installs programs and dependencies
-
-checks.sh - Checks success and versions for some tools and programs
-
-omz.sh - installs OhMyZsh and sets it as the default shell
+`init.sh` - Installs programs and dependencies
 
 
+## Windows
 
-# Windows
-
-debloat.ps1 - Remove bloatware and bloat
+`debloat.ps1` - Remove bloatware and bloat
 
 
 
