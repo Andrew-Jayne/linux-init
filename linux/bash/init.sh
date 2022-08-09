@@ -102,6 +102,8 @@ echo 'Enjoy the new install'
 
 # Clean Up .deb files
 rm *.deb
+# Clean Up excess packages
+sudo apt autoremove
 
 # Check Versions and confirm succesfull installs
 sudo docker run hello-world || echo 'Docker install failed'
