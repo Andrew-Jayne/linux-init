@@ -3,7 +3,11 @@ sudo apt update
 sudo apt upgrade
 
 ## Install additional native packages
-sudo apt install vim apt-transport-https curl ansible zsh python3 python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg blueman yamllint screen gnome-todo flatpak wget
+sudo apt install zsh vim apt-transport-https curl ansible zsh python3 python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg blueman yamllint screen gnome-todo flatpak wget
+
+## Install OhMyZsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo chsh -s /bin/zsh
 
 ## Install pip
 python3 -m ensurepip --upgrade
@@ -78,13 +82,31 @@ pip3 install git+https://github.com/ansible-community/ansible-lint.git
         #install Paper
 	flatpak install https://dl.flathub.org/repo/appstream/io.posidon.Paper.flatpakref
 
+# Add kubectl Alias
+echo 'alias kc=kubectl' > ~/.zshrc
+
 ## Closing messages
-echo ""
-echo ""
-echo ""
-echo "Azure VDI is restricted to web only, what a sham"
+echo ''
+echo ''
+echo ''
+echo 'Relauch terminal to pick up OhMyZSH'
+echo 'Azure VDI is restricted to web only, what a sham'
 echo 'Edge DL link -> https://www.microsoftedgeinsider.com/en-us/download?platform=linux-deb'
-echo "Enjoy the new install"
+echo 'Enjoy the new install'
+
+
+
 
 # Clean Up .deb files
 rm *.deb
+
+# Check Versions and confirm succesfull installs
+sudo docker run hello-world || echo 'Docker install failed'
+python --version || echo 'Python install failed'
+aws --version || echo 'AWS CLI install failed'
+az version || echo 'Azure CLI install failed'
+terraform --version || echo 'Terraform install failed'
+pip --version || echo 'Pip install failed'
+kubectl version --short || echo 'Kubectl install failed'
+flatpak --version || echo 'Flatpak install failed'
+snap version || echo 'Snap install failed'
