@@ -14,7 +14,7 @@ python3 -m ensurepip --upgrade
 
 ##  Install packages from external sources
 
-	#install Keys and GPG for Brave, Sublime Text, Docker, KubeCtl, Terraform, OBS
+	#install Keys and GPG for Brave, Sublime Text, Docker, KubeCtl, Terraform, OBS, Helm
 		#brave
 		sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 		echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
@@ -34,6 +34,11 @@ python3 -m ensurepip --upgrade
 		sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 		echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 		
+		#helm
+		curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+		echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+
+
 		#Terraform
 		wget -qO - terraform.gpg https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/terraform-archive-keyring.gpg
 		sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/terraform-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > etc/apt/sources.list.d/terraform.list
@@ -43,7 +48,7 @@ python3 -m ensurepip --upgrade
 
 	#install Brave, Docker, KubeCtl, Terraform, Sublime Text, OBS
 	sudo apt update
-	sudo apt install brave-browser terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl  awscli sublime-text obs-studio
+	sudo apt install brave-browser terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl  awscli sublime-text obs-studio helm
 
 ## Install .deb packages
 	#install AVX VPN Client
