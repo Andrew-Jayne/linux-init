@@ -26,9 +26,7 @@ python3 -m ensurepip --upgrade
 		#docker
 		sudo apt-get remove docker docker-engine docker.io containerd runc
 		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-		echo \
-  		"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  		$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+		echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 		
 		#kubectl
 		sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
@@ -48,7 +46,7 @@ python3 -m ensurepip --upgrade
 
 	#install Brave, Docker, KubeCtl, Terraform, Sublime Text, OBS
 	sudo apt update
-	sudo apt install brave-browser terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl  awscli sublime-text obs-studio helm
+	sudo apt install brave-browser terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl awscli sublime-text obs-studio helm
 
 ## Install .deb packages
 	#install AVX VPN Client
