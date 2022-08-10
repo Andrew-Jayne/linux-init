@@ -7,7 +7,8 @@
 
 ## Linux
 
-`init.sh` - Installs programs and dependencies
+`cli_init.sh` - Install CLI tools, for WSL or other console only uses
+`gui_init.sh` - Install CLI Tools and GUI programs for graphical installs
 
 
 ## Windows
