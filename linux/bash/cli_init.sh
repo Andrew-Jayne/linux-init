@@ -41,9 +41,6 @@ python3 -m ensurepip --upgrade
 sudo apt remove azure-cli
 curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 
-## Install Ansible lint
-pip3 install git+https://github.com/ansible-community/ansible-lint.git
-
 # Add kubectl Alias
 echo 'alias kc=kubectl' > ~/.zshrc
 
@@ -52,8 +49,6 @@ echo ''
 echo ''
 echo ''
 echo 'Relauch terminal to pick up OhMyZSH'
-echo 'Azure VDI is restricted to web only, what a sham'
-echo 'Edge DL link -> https://www.microsoftedgeinsider.com/en-us/download?platform=linux-deb'
 echo 'Enjoy the new install'
 
 

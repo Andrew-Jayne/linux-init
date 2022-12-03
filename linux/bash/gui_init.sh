@@ -9,6 +9,13 @@ sudo apt install zsh vim apt-transport-https curl ansible zsh python3 python-is-
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sudo chsh -s /bin/zsh
 
+#Set up etc/resolve.conf for AVX VPN
+sudo dpkg-reconfigure resolvconf
+
+## Add Bluetooth Controller mode
+sed -i 's/ControllerMode = bredr/ControllerMode = dual/' /etc/bluetooth/main.conf
+sudo /etc/init.d/bluetooth restart
+
 ## Install pip
 python3 -m ensurepip --upgrade
 
@@ -36,7 +43,6 @@ python3 -m ensurepip --upgrade
 		curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
 		echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
 
-
 		#Terraform
 		wget -qO - terraform.gpg https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/terraform-archive-keyring.gpg
 		sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/terraform-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > etc/apt/sources.list.d/terraform.list
@@ -44,45 +50,43 @@ python3 -m ensurepip --upgrade
 		#OBS
 		sudo add-apt-repository ppa:obsproject/obs-studio
 
+		#Edge
+		curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+		sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+		sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-dev.list'
+		sudo rm microsoft.gpg
+
 	#install Brave, Docker, KubeCtl, Terraform, Sublime Text, OBS
 	sudo apt update
-	sudo apt install brave-browser terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl awscli sublime-text obs-studio helm
+	sudo apt install microsoft-edge-stable brave-browser terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl awscli sublime-text obs-studio helm
 
 ## Install .deb packages
 	#install AVX VPN Client
 	curl "https://aviatrix-download.s3-us-west-2.amazonaws.com/AviatrixVPNClient/AVPNC_linux_FocalFossa.deb" -o AVPNC_linux_FocalFossa.deb
 	sudo dpkg -i AVPNC_linux_FocalFossa.deb
 
-	#install AWS VPN Client
-	curl "https://d20adtppz83p9s.cloudfront.net/GTK/latest/awsvpnclient_amd64.deb" -o awsvpnclient_amd64.deb
-	sudo dpkg -i awsvpnclient_amd64.deb
-
 	#install VS Code
 	curl "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o vscode.deb
 	sudo dpkg -i vscode.deb
 
-	#install OpenSSL 1.1.1 (For AWS VPN)
-	curl "http://ftp.de.debian.org/debian/pool/main/o/openssl/openssl_1.1.1n-0+deb11u3_amd64.deb" -o openssl111.deb
-	sudo dpkg -i openssl111.deb
+	#install Mint Web App Manager
+	curl "http://packages.linuxmint.com/pool/main/w/webapp-manager/webapp-manager_1.2.7_all.deb" -o mint-web-app-manager.deb
+	sudo dpkg -i mint-web-app-manager.deb
 
 ## Install Azure CLI
 sudo apt remove azure-cli
 curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 
-## Install Ansible lint
-pip3 install git+https://github.com/ansible-community/ansible-lint.git
-
 ## Install Snap Packages
-	#install slack
-	sudo snap install slack --classic
-
 	#install Glimpse
 	sudo snap install glimpse-editor
 
 	#install Azure Storage Explorer
 	sudo snap install storage-explorer
         
-        #install Paper
+ ## Install Flatpak Packages
+ 
+    #install Paper
 	flatpak install https://dl.flathub.org/repo/appstream/io.posidon.Paper.flatpakref
 
 # Add kubectl Alias
@@ -94,10 +98,7 @@ echo ''
 echo ''
 echo 'Relauch terminal to pick up OhMyZSH'
 echo 'Azure VDI is restricted to web only, what a sham'
-echo 'Edge DL link -> https://www.microsoftedgeinsider.com/en-us/download?platform=linux-deb'
 echo 'Enjoy the new install'
-
-
 
 
 # Clean Up .deb files
