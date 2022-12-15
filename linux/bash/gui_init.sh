@@ -69,10 +69,6 @@ python3 -m ensurepip --upgrade
 	curl "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o vscode.deb
 	sudo dpkg -i vscode.deb
 
-	#install Mint Web App Manager
-	curl "http://packages.linuxmint.com/pool/main/w/webapp-manager/webapp-manager_1.2.7_all.deb" -o mint-web-app-manager.deb
-	sudo dpkg -i mint-web-app-manager.deb
-
 ## Install Azure CLI
 sudo apt remove azure-cli
 curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
