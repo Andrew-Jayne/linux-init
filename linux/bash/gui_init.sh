@@ -3,17 +3,13 @@ sudo apt update
 sudo apt upgrade -y
 
 #remove tools extra tools
-sudo apt remove nano -y
+sudo apt remove nano geary-y
 
 ## Install additional native packages
-sudo apt install vim apt-transport-https gparted curl ansible zsh python3 python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg  yamllint flatpak wget chromium-browser nmap  brasero -y
+sudo apt install vim apt-transport-https gparted curl ansible zsh python3 python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg  yamllint flatpak wget chromium-browser nmap brasero -y
 
 #Set up etc/resolve.conf for AVX VPN
 sudo dpkg-reconfigure resolvconf
-
-## Add Bluetooth Controller mode
-sed -i 's/ControllerMode = bredr/ControllerMode = dual/' /etc/bluetooth/main.conf
-sudo /etc/init.d/bluetooth restart
 
 ## Install pip
 python3 -m ensurepip --upgrade
@@ -73,9 +69,6 @@ sudo apt remove azure-cli
 curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 
 ## Install Snap Packages
-	#install Glimpse
-	sudo snap install glimpse-editor
-
 	#install Azure Storage Explorer
 	sudo snap install storage-explorer
         
@@ -91,6 +84,9 @@ curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 	flatpak install flathub fr.handbrake.ghb
     #install Signal
 	flatpak install flathub org.signal.Signal
+	#install Glimpse
+	flatpak install flathub org.glimpse_editor.Glimpse
+
 ## Install OhMyZsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sudo chsh -s /bin/zsh
@@ -101,7 +97,6 @@ echo 'alias kc=kubectl' >> ~/.zshrc
 # Add Encroyt & Decrypt Aliases
 alias encrypt="openssl aes-256-cbc -a -salt"
 alias decrypt="openssl aes-256-cbc -d -a"
-
 
 ## Closing messages
 echo ''
