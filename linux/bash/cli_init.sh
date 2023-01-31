@@ -5,10 +5,6 @@ sudo apt upgrade
 ## Install additional native packages
 sudo apt install zsh vim apt-transport-https curl ansible zsh python3 python-is-python3 python3-pip ca-certificates software-properties-common curl gnupg lsb-release yamllint screen wget
 
-## Install OhMyZsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-sudo chsh -s /bin/zsh
-
 ## Install pip
 python3 -m ensurepip --upgrade
 
@@ -43,8 +39,16 @@ curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 ## Install Ansible lint
 pip3 install git+https://github.com/ansible-community/ansible-lint.git
 
+## Install OhMyZsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo chsh -s /bin/zsh
+
 # Add kubectl Alias
 echo 'alias kc=kubectl' > ~/.zshrc
+
+# Add Encroyt & Decrypt Aliases
+alias encrypt="openssl aes-256-cbc -a -salt"
+alias decrypt="openssl aes-256-cbc -d -a"
 
 # Clean Up .deb files
 rm *.deb
