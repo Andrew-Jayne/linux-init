@@ -3,7 +3,7 @@ sudo apt update
 sudo apt upgrade -y
 
 #remove tools extra tools
-sudo apt remove nano geary-y
+sudo apt remove nano geary -y
 
 ## Install additional native packages
 sudo apt install vim apt-transport-https gparted curl ansible zsh python3 python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg  yamllint flatpak wget chromium-browser nmap brasero -y
@@ -73,7 +73,6 @@ curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 	sudo snap install storage-explorer
         
  ## Install Flatpak Packages
- 
     #install Cider
 	flatpak install flathub sh.cider.Cider
     #install Bitwarden
@@ -100,6 +99,10 @@ alias decrypt="openssl aes-256-cbc -d -a"
 
 # Add Terraform Autocomplete
 terraform -install-autocomplete
+
+## Prompt to create SSH key
+echo "Please create your default SSH key, and use a secure password"
+ssh-keygen -t rsa
 
 ## Closing messages
 echo ''
