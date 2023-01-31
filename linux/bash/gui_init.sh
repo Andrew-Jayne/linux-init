@@ -98,6 +98,9 @@ echo 'alias kc=kubectl' >> ~/.zshrc
 alias encrypt="openssl aes-256-cbc -a -salt"
 alias decrypt="openssl aes-256-cbc -d -a"
 
+# Add Terraform Autocomplete
+terraform -install-autocomplete
+
 ## Closing messages
 echo ''
 echo ''
