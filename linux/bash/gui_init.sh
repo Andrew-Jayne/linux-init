@@ -1,13 +1,12 @@
 echo "Welcome $USER"
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
+
+#remove tools extra tools
+sudo apt remove nano -y
 
 ## Install additional native packages
-sudo apt install zsh vim apt-transport-https curl ansible zsh python3 python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg blueman yamllint screen gnome-todo flatpak wget
-
-## Install OhMyZsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-sudo chsh -s /bin/zsh
+sudo apt install vim apt-transport-https gparted curl ansible zsh python3 python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg  yamllint flatpak wget chromium-browser nmap  brasero -y
 
 #Set up etc/resolve.conf for AVX VPN
 sudo dpkg-reconfigure resolvconf
@@ -26,6 +25,11 @@ python3 -m ensurepip --upgrade
 		sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 		echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 		
+		#brave beta
+		sudo curl -fsSLo /usr/share/keyrings/brave-browser-beta-archive-keyring.gpg https://brave-browser-apt-beta.s3.brave.com/brave-browser-beta-archive-keyring.gpg
+		echo "deb [signed-by=/usr/share/keyrings/brave-browser-beta-archive-keyring.gpg] https://brave-browser-apt-beta.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-beta.list
+		
+		
 		#sublime
 		wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/sublime.gpg
 		echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -36,29 +40,24 @@ python3 -m ensurepip --upgrade
 		echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 		
 		#kubectl
-		sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-		echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+		sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+		echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 		
 		#helm
 		curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
 		echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
 
 		#Terraform
-		wget -qO - terraform.gpg https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/terraform-archive-keyring.gpg
-		sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/terraform-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > etc/apt/sources.list.d/terraform.list
+		wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+		echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 
 		#OBS
 		sudo add-apt-repository ppa:obsproject/obs-studio
 
-		#Edge
-		curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-		sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-		sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-dev.list'
-		sudo rm microsoft.gpg
 
 	#install Brave, Docker, KubeCtl, Terraform, Sublime Text, OBS
 	sudo apt update
-	sudo apt install microsoft-edge-stable brave-browser terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl awscli sublime-text obs-studio helm
+	sudo apt install brave-browser brave-browser-beta terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl awscli sublime-text obs-studio helm -y
 
 ## Install .deb packages
 	#install AVX VPN Client
@@ -82,11 +81,27 @@ curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
         
  ## Install Flatpak Packages
  
-    #install Paper
-	flatpak install https://dl.flathub.org/repo/appstream/io.posidon.Paper.flatpakref
+    #install Cider
+	flatpak install flathub sh.cider.Cider
+    #install Bitwarden
+	flatpak install flathub com.bitwarden.desktop
+    #install Remmina RDP
+	flatpak install flathub org.remmina.Remmina
+    #install Handbrake
+	flatpak install flathub fr.handbrake.ghb
+    #install Signal
+	flatpak install flathub org.signal.Signal
+## Install OhMyZsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo chsh -s /bin/zsh
 
 # Add kubectl Alias
-echo 'alias kc=kubectl' > ~/.zshrc
+echo 'alias kc=kubectl' >> ~/.zshrc
+
+# Add Encroyt & Decrypt Aliases
+alias encrypt="openssl aes-256-cbc -a -salt"
+alias decrypt="openssl aes-256-cbc -d -a"
+
 
 ## Closing messages
 echo ''
