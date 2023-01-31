@@ -57,8 +57,8 @@ python3 -m ensurepip --upgrade
 
 ## Install .deb packages
 	#install AVX VPN Client
-	curl "https://aviatrix-download.s3-us-west-2.amazonaws.com/AviatrixVPNClient/AVPNC_linux_FocalFossa.deb" -o AVPNC_linux_FocalFossa.deb
-	sudo dpkg -i AVPNC_linux_FocalFossa.deb
+	curl "https://aviatrix-download.s3-us-west-2.amazonaws.com/AviatrixVPNClient/AVPNC_linux_JammyJellyfish.deb" -o AVPNC_linux_JammyJellyfish.deb
+	sudo dpkg -i AVPNC_linux_JammyJellyfish.deb
 
 	#install VS Code
 	curl "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o vscode.deb
