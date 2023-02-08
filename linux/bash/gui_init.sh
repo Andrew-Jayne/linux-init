@@ -6,7 +6,7 @@ sudo apt upgrade -y
 sudo apt remove nano geary -y
 
 ## Install additional native packages
-sudo apt install vim apt-transport-https gparted curl ansible zsh python3 python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg  yamllint flatpak wget chromium-browser nmap brasero -y
+sudo apt install vim apt-transport-https gparted curl ansible zsh python3 python-is-python3 python3-pip snapd ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg  yamllint flatpak wget chromium-browser nmap brasero exfat-fuse dosfstools -y
 
 #Set up etc/resolve.conf for AVX VPN
 sudo dpkg-reconfigure resolvconf
