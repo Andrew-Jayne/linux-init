@@ -46,6 +46,11 @@ sudo chsh -s /bin/zsh
 # Add kubectl Alias
 echo 'alias kc=kubectl' > ~/.zshrc
 
+# Addo code runner aliases
+echo 'alias py=python3' >> ~/.zshrc
+echo 'alias python=python3' >> ~/.zshrc
+echo 'alias tf=terraform' >> ~/.zshrc
+
 # Add Encroyt & Decrypt Aliases
 alias encrypt="openssl aes-256-cbc -a -salt"
 alias decrypt="openssl aes-256-cbc -d -a"

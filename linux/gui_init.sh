@@ -83,8 +83,8 @@ curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 	flatpak install flathub fr.handbrake.ghb
     #install Signal
 	flatpak install flathub org.signal.Signal
-	#install Glimpse
-	flatpak install flathub org.glimpse_editor.Glimpse
+	#install Gimp
+	flatpak install flathub org.gimp.GIMP
 
 ## Install OhMyZsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -93,12 +93,19 @@ sudo chsh -s /bin/zsh
 # Add kubectl Alias
 echo 'alias kc=kubectl' >> ~/.zshrc
 
-# Add Encroyt & Decrypt Aliases
-alias encrypt="openssl aes-256-cbc -a -salt"
-alias decrypt="openssl aes-256-cbc -d -a"
+# Addo code runner aliases
+echo 'alias py=python3' >> ~/.zshrc
+echo 'alias python=python3' >> ~/.zshrc
+echo 'alias tf=terraform' >> ~/.zshrc
 
-# Add Terraform Autocomplete
-terraform -install-autocomplete
+# Add Encroyt & Decrypt Aliases
+echo 'alias encrypt=openssl aes-256-cbc -a -salt' >> ~/.zshrc
+echo 'alias decrypt=openssl aes-256-cbc -d -a' >> ~/.zshrc
+
+# Addo code runner aliases
+echo 'alias py=python3' >> ~/.zshrc
+echo 'alias python=python3' >> ~/.zshrc
+echo 'alias tf=terraform' >> ~/.zshrc
 
 ## Prompt to create SSH key
 echo "Please create your default SSH key, and use a secure password"
