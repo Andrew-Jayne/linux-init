@@ -2,6 +2,9 @@ echo "Welcome $USER"
 sudo apt update
 sudo apt upgrade
 
+#remove tools extra tools
+sudo apt remove nano
+
 ## Install additional native packages
 sudo apt install zsh vim apt-transport-https curl ansible zsh python3 python-is-python3 python3-pip ca-certificates software-properties-common curl gnupg lsb-release yamllint screen wget
 
