@@ -66,27 +66,27 @@ curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
         
  ## Install Flatpak Packages
     #install Cider
-	flatpak install flathub sh.cider.Cider
+	flatpak install flathub sh.cider.Cider -y
     #install Bitwarden
-	flatpak install flathub com.bitwarden.desktop
+	flatpak install flathub com.bitwarden.desktop -y
     #install Remmina RDP
-	flatpak install flathub org.remmina.Remmina
+	flatpak install flathub org.remmina.Remmina -y
     #install Handbrake
-	flatpak install flathub fr.handbrake.ghb
+	flatpak install flathub fr.handbrake.ghb -y
     #install Signal
-	flatpak install flathub org.signal.Signal
+	flatpak install flathub org.signal.Signal -y
 	#install Gimp
-	flatpak install flathub org.gimp.GIMP
+	flatpak install flathub org.gimp.GIMP -y
 	#install Firefox
-	flatpak install flathub org.mozilla.firefox
+	flatpak install flathub org.mozilla.firefox -y
 	#install Brave Stable
-	flatpak install flathub com.brave.Browser
+	flatpak install flathub com.brave.Browser -y
 	#install Chromimum
-	flatpak install flathub org.chromium.Chromium
+	flatpak install flathub org.chromium.Chromium -y
 	#install sublime text
-	flatpak run com.sublimetext.three
+	flatpak install com.sublimetext.three -y
 	#install OBS studio
-	flatpak install flathub com.obsproject.Studio
+	flatpak install flathub com.obsproject.Studio -y
 
 ## Install OhMyZsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
