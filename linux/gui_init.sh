@@ -83,8 +83,6 @@ curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 	flatpak install flathub com.brave.Browser -y
 	#install Chromimum
 	flatpak install flathub org.chromium.Chromium -y
-	#install sublime text
-	flatpak install com.sublimetext.three -y
 	#install OBS studio
 	flatpak install flathub com.obsproject.Studio -y
 
