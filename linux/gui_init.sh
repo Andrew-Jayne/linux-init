@@ -3,7 +3,7 @@ sudo apt update
 sudo apt upgrade -y
 
 #remove tools extra tools
-sudo apt remove nano geary firefox totem libreoffice-base-core libreoffice-common libreoffice-style-colibre libreoffice-style-yaru  gnome-calculator -y
+sudo apt remove nano geary firefox totem libreoffice-base-core libreoffice-common libreoffice-style-colibre libreoffice-style-yaru  gnome-calculator gnome-calendar gnome-contacts -y
 sudo apt autoremove -y 
 
 ## Install additional native packages
@@ -88,6 +88,8 @@ curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 	flatpak install flathub com.obsproject.Studio -y
 	# Extra Gnome apps
 	flatpak install flathub org.gnome.Calculator
+	flatpak install flathub org.gnome.Calendar
+	flatpak install flathub org.gnome.TextEditor
 
 ## Install OhMyZsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
