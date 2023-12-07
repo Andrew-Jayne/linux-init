@@ -1,6 +1,6 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install terraform kubectl 
-brew install --cask brave-browser firefox vlc signal visual-studio-code sublime-text ableton-live-lite docker losslesscut handbrake obs visual-studio-code notion gimp
+brew install --cask brave-browser firefox vlc signal visual-studio-code ableton-live-lite docker losslesscut handbrake obs notion gimp
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ## Install pip

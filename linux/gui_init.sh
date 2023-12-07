@@ -3,7 +3,8 @@ sudo apt update
 sudo apt upgrade -y
 
 #remove tools extra tools
-sudo apt remove nano geary firefox -y
+sudo apt remove nano geary firefox totem libreoffice-base-core libreoffice-common libreoffice-style-colibre libreoffice-style-yaru  gnome-calculator -y
+sudo apt autoremove -y 
 
 ## Install additional native packages
 sudo apt install vim apt-transport-https gparted curl ansible zsh python3 python-is-python3 python3-pip ca-certificates software-properties-common curl gnupg lsb-release virtualbox ffmpeg yamllint flatpak wget chromium-browser nmap brasero exfat-fuse dosfstools virt-manager -y
@@ -23,7 +24,7 @@ python3 -m ensurepip --upgrade
 		echo "deb [signed-by=/usr/share/keyrings/brave-browser-beta-archive-keyring.gpg] https://brave-browser-apt-beta.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-beta.list
 		
 		#docker
-		sudo apt-get remove docker docker-engine docker.io containerd runc
+		sudo apt remove docker docker-engine docker.io containerd runc
 		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 		echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 		
@@ -85,6 +86,8 @@ curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
 	flatpak install flathub org.chromium.Chromium -y
 	#install OBS studio
 	flatpak install flathub com.obsproject.Studio -y
+	# Extra Gnome apps
+	flatpak install flathub org.gnome.Calculator
 
 ## Install OhMyZsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
