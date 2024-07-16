@@ -47,7 +47,11 @@ python3 -m ensurepip --upgrade
 
 ##  Install packages from external sources
 
-	#install Keys and GPG for, Docker, KubeCtl, Terraform, OBS, Helm
+	#install Keys and GPG for, Docker, KubeCtl, Helm, GCP CLI
+
+		#GPCCLI
+		curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+		echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 
 		#docker
 		sudo apt remove docker docker-engine docker.io containerd runc
@@ -69,7 +73,8 @@ python3 -m ensurepip --upgrade
 											containerd.io \
 											docker-compose-plugin \
 											kubectl \
-											helm 
+											helm \
+											google-cloud-cli
 
 ## Congifure Group Permissions for Docker
 sudo groupadd docker
@@ -95,6 +100,11 @@ newgrp docker
 ## Install Azure CLI
 sudo apt remove azure-cli
 curl -sL "https://aka.ms/InstallAzureCLIDeb" | sudo bash
+
+## Install AWS CLI
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 
         
  ## Install Flatpak Packages
@@ -164,8 +174,10 @@ echo 'Relauch terminal to pick up OhMyZSH'
 echo 'Enjoy the new install'
 
 
-# Clean Up .deb files
+# Clean Up files
 rm *.deb
+rm -rf ./aws
+
 # Clean Up excess packages
 sudo apt autoremove
 
