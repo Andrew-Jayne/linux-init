@@ -3,41 +3,11 @@ sudo apt update
 sudo apt upgrade -y
 
 #remove tools extra tools
-sudo apt remove -y  nano \
-										geary \ 
-										firefox \ 
-										awscli \ 
-										pop-shop \
-										libreoffice-base-core \ 
-										libreoffice-common \
-										libreoffice-style-colibre \ 
-										libreoffice-style-yaru \ 
-										gnome-calculator \ 
-										gnome-calendar \ 
-										gnome-contacts \
-										gnome-remote-desktop \
-										gnome-weather \
-										ubuntu-pro-client
-
+sudo apt remove -y  nano geary firefox awscli pop-shop libreoffice-base-core libreoffice-common libreoffice-style-colibre libreoffice-style-yaru gnome-calculator gnome-calendar gnome-contacts gnome-remote-desktop gnome-weather ubuntu-pro-client
 sudo apt autoremove -y 
 
 ## Install additional native packages
-sudo apt install -y vim \ 
-										apt-transport-https \
-										gparted \ 
-										curl \ 
-										zsh \ 
-										python3 \
-										python-is-python3 \
-										python3-pip \ 
-										ca-certificates \
-										software-properties-common \ 
-										gnupg \
-										lsb-release\
-										ffmpeg \
-										wget \  
-										nmap \ 
-										exfat-fuse\
+sudo apt install -y vim apt-transport-https gparted curl zsh python3 python-is-python3 python3-pip ca-certificates software-properties-common gnupg lsb-release ffmpeg wget nmap exfat-fuse
 
 #Set up etc/resolve.conf for AVX VPN
 sudo dpkg-reconfigure resolvconf
@@ -68,20 +38,11 @@ python3 -m ensurepip --upgrade
 
 	#install Docker, KubeCtl, Helm
 	sudo apt update
-	sudo apt install -y docker-ce \
-											docker-ce-cli \
-											containerd.io \
-											docker-compose-plugin \
-											kubectl \
-											helm \
-											google-cloud-cli
+	sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin kubectl helm google-cloud-cli
 
 ## Congifure Group Permissions for Docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
-
-#this keeps us from needing a logout/login to pick up the new group
-newgrp docker
 
 ## Install .deb packages
 
@@ -110,41 +71,28 @@ sudo ./aws/install
  ## Install Flatpak Packages
 
   ## Add flathub repo
-	flatpak remote-add --if-not-exists -y flathub https://flathub.org/repo/flathub.flatpakrepo
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
   ## Text & Diagram Editors
-	flatpak install -y md.obsidian.Obsidian \
-										 com.jgraph.drawio.desktop
+	flatpak install md.obsidian.Obsidian com.jgraph.drawio.desktop
 	
 	## Remote Access
-	flatpak install -y org.remmina.Remmina
+	flatpak install org.remmina.Remmina
 
   ## Password Managment
-	flatpak install -y com.bitwarden.desktop
+	flatpak install com.bitwarden.desktop
 	
   ## Communication
-	flatpak install -y org.signal.Signal \
-										 us.zoom.Zoom 
+	flatpak install org.signal.Signal us.zoom.Zoom 
 
 	## Web Browsers
-	flatpak install -y org.mozilla.firefox \
-										 com.brave.Browser \
-										 org.chromium.Chromium \
-										 io.gitlab.librewolf-community \
+	flatpak install org.mozilla.firefox com.brave.Browser org.chromium.Chromium io.gitlab.librewolf-community
 
 	## Media Tools
-	flatpak install -y fr.handbrake.ghb \
-										 com.obsproject.Studio \
-										 org.upscayl.Upscayl \
-										 org.gimp.GIMP \
-										 sh.cider.Cider \
-										 org.videolan.VLC \
-										 org.shotcut.Shotcut \
-										 no.mifi.losslesscut \
+	flatpak install fr.handbrake.ghb com.obsproject.Studio org.upscayl.Upscayl org.gimp.GIMP sh.cider.Cider org.videolan.VLC org.shotcut.Shotcut no.mifi.losslesscut
 
 	# Extra Gnome apps
-	flatpak install -y org.gnome.Calculator \
-										 org.gnome.Calendar
+	flatpak install org.gnome.Calculator org.gnome.Calendar
 
 ## Install OhMyZsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -182,7 +130,6 @@ rm -rf ./aws
 sudo apt autoremove
 
 # Check Versions and confirm succesfull installs
-sudo docker run hello-world || echo 'Docker install failed'
 python --version || echo 'Python install failed'
 aws --version || echo 'AWS CLI install failed'
 az version || echo 'Azure CLI install failed'
@@ -190,4 +137,3 @@ gcloud --version || echo ' GCP CLI Install Failed'
 pip --version || echo 'Pip install failed'
 kubectl version --short || echo 'Kubectl install failed'
 helm --version || echo 'Helm Install Failed'
-flatpak --version || echo 'Flatpak install failed'
